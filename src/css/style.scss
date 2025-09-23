@@ -1,0 +1,376 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import './variables.scss';
+
+@mixin list-reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 8px;
+}
+
+html {
+  height: auto !important;
+}
+
+.card-login_header {
+  display: block;
+  width: 50%;
+  margin: 0;
+  z-index: 1;
+  top: 0px;
+  left: 0px;
+  position: absolute;
+}
+@media only screen and (max-width: 430.5px) {
+  .card-login_header {
+    width: 68%;
+  }
+}
+.card-login_footer {
+  display: block;
+  width: 100%;
+  height: 60px;
+  max-height: 60px;
+  margin: 0;
+  z-index: 2;
+  bottom: 0px;
+  position: absolute;
+  left: 0px;
+  float: left;
+}
+
+.parallax1 > use {
+  animation: move-forever1 10s linear infinite;
+  &:nth-child(1) {
+    animation-delay: -2s;
+  }
+}
+.parallax2 > use {
+  animation: move-forever2 8s linear infinite;
+  &:nth-child(1) {
+    animation-delay: -2s;
+  }
+}
+.parallax3 > use {
+  animation: move-forever3 6s linear infinite;
+  &:nth-child(1) {
+    animation-delay: -2s;
+  }
+}
+.parallax4 > use {
+  animation: move-forever4 4s linear infinite;
+  &:nth-child(1) {
+    animation-delay: -2s;
+  }
+}
+@keyframes move-forever1 {
+  0% {
+    transform: translate(85px, 0%);
+  }
+  100% {
+    transform: translate(-90px, 0%);
+  }
+}
+@keyframes move-forever2 {
+  0% {
+    transform: translate(-90px, 0%);
+  }
+  100% {
+    transform: translate(85px, 0%);
+  }
+}
+@keyframes move-forever3 {
+  0% {
+    transform: translate(85px, 0%);
+  }
+  100% {
+    transform: translate(-90px, 0%);
+  }
+}
+@keyframes move-forever4 {
+  0% {
+    transform: translate(-90px, 0%);
+  }
+  100% {
+    transform: translate(85px, 0%);
+  }
+}
+
+.common-hero-banner {
+  width: 69%;
+  margin: 0 auto;
+  padding: 20px 0 0;
+  letter-spacing: -0.5px;
+  font-size: 25px !important;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.material-color-picker {
+  // display: flex;
+  // width: 32em;
+  // margin: 0 auto;
+  // flex-direction: column;
+  background-color: white;
+  // border: 1px solid #78909c50;
+  border-radius: 0.5em;
+  // box-shadow: 0 1em 8em rgba(black, 0.09);
+  &__left-panel {
+    z-index: 1;
+  }
+
+  // &__right-panel {
+  //   position: relative;
+  //   flex-grow: 1;
+  //   overflow: hidden;
+  // }
+}
+
+.color-selector {
+  // this whole chunk could be done better/smarter
+  @include list-reset;
+  display: flex;
+  flex-direction: row;
+  // overflow-x: auto;
+  padding: 1em 0;
+  // border-right: 0.25em solid #e0e0e0;
+  input[type='radio'] {
+    display: none;
+  }
+
+  label {
+    position: relative;
+    display: inline-block;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    &:before {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      padding: 0.75em;
+      background-color: currentColor;
+      border-radius: 50%;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 0.5em;
+      border: 0.25em solid;
+      border-radius: 50%;
+      transition: padding 250ms;
+    }
+  }
+  .label-checked {
+    &::after {
+      padding: 0.9em;
+    }
+  }
+  // input[type='radio']:checked + label:after {
+  //   padding: 1em;
+  // }
+} // end sucky chunk
+
+.color-palette-wrapper {
+  // position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  // transform: translateX(-100%);
+  //transition: transform 250ms;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1.5em 1.5em 1.5em;
+  &.js-active {
+    transform: translateX(0);
+  }
+}
+
+.color-palette-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  margin-bottom: 1em;
+  font-weight: 400;
+  color: #757575;
+}
+
+.color-palette {
+  @include list-reset;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  height: 70px;
+  width: 70px;
+
+  &__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+    // margin: 0.25em 0.3em;
+    padding: 0 2em;
+    // border-radius: 0.25em;
+    font-family: 'Roboto Mono', monospace;
+    transition: transform 250ms;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.1);
+      z-index: 2;
+    }
+  }
+}
+
+.copied-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  opacity: 0;
+  transition: all 250ms;
+  &.js-copied {
+    transform: translate(-50%, -50%);
+    opacity: 0.75;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .color-palette {
+    height: 40px;
+    width: 70px;
+  }
+  .color-palette__item {
+    padding: 0 1.3em;
+  }
+  .color-palette-wrapper {
+    padding: 0px;
+  }
+  .color-selector {
+    label {
+      padding: 0em 0.5em 0em 0.5em;
+    }
+  }
+}
+
+.operator-search {
+  background: #f2f2f2;
+  border: 1px solid #cccccc;
+  border-radius: 2rem;
+  outline: none;
+  // font-size: 2rem;
+  color: #737373;
+  letter-spacing: 1px;
+  padding: 6px 8px;
+  // text-indent: 2rem;
+}
+.MuiOutlinedInput-root {
+  background-color: white;
+}
+
+// LOADER CSS //
+
+.loader {
+  width: 40px;
+  aspect-ratio: 1;
+  --c: linear-gradient(#01497c 0 0);
+  --r1: radial-gradient(farthest-side at bottom, rgb(187, 234, 255) 93%, #0000);
+  --r2: radial-gradient(farthest-side at top, rgb(187, 234, 255) 95%, #0000);
+  background: var(--c), var(--r1), var(--r2), var(--c), var(--r1), var(--r2), var(--c), var(--r1),
+    var(--r2);
+  background-repeat: no-repeat;
+  animation: l2 1s infinite alternate;
+}
+@keyframes l2 {
+  0%,
+  25% {
+    background-size: 8px 0, 8px 4px, 8px 4px, 8px 0, 8px 4px, 8px 4px, 8px 0, 8px 4px, 8px 4px;
+    background-position: 0 50%, 0 calc(50% - 2px), 0 calc(50% + 2px), 50% 50%, 50% calc(50% - 2px),
+      50% calc(50% + 2px), 100% 50%, 100% calc(50% - 2px), 100% calc(50% + 2px);
+  }
+  50% {
+    background-size: 8px 100%, 8px 4px, 8px 4px, 8px 0, 8px 4px, 8px 4px, 8px 0, 8px 4px, 8px 4px;
+    background-position: 0 50%, 0 calc(0% - 2px), 0 calc(100% + 2px), 50% 50%, 50% calc(50% - 2px),
+      50% calc(50% + 2px), 100% 50%, 100% calc(50% - 2px), 100% calc(50% + 2px);
+  }
+  75% {
+    background-size: 8px 100%, 8px 4px, 8px 4px, 8px 100%, 8px 4px, 8px 4px, 8px 0, 8px 4px, 8px 4px;
+    background-position: 0 50%, 0 calc(0% - 2px), 0 calc(100% + 2px), 50% 50%, 50% calc(0% - 2px),
+      50% calc(100% + 2px), 100% 50%, 100% calc(50% - 2px), 100% calc(50% + 2px);
+  }
+  95%,
+  100% {
+    background-size: 8px 100%, 8px 4px, 8px 4px, 8px 100%, 8px 4px, 8px 4px, 8px 100%, 8px 4px,
+      8px 4px;
+    background-position: 0 50%, 0 calc(0% - 2px), 0 calc(100% + 2px), 50% 50%, 50% calc(0% - 2px),
+      50% calc(100% + 2px), 100% 50%, 100% calc(0% - 2px), 100% calc(100% + 2px);
+  }
+}
+
+// .custom-date-range-picker-container {
+//   border: 1px solid #ccc;
+//   border-radius: 4px;
+//   padding: 8px 12px;
+//   font-size: 14px;
+//   display: flex;
+//   align-items: center;
+// }
+
+/* Example styles to adjust DateRangePicker toggle icon */
+// .custom-date-range-picker-container .rs-picker-toggle {
+//   padding: 0 !important;
+//   margin-left: 5px !important;
+//   color: #555 !important;
+// }
+
+// .custom-date-range-picker-container .rs-picker-toggle .rs-icon {
+//   font-size: 16px !important;
+// }
+
+/* Hide the original border of the DateRangePicker */
+// .rs-picker-input {
+//   border: none !important;
+// }
+.MuiDialog-custom {
+  z-index: 1 !important; /* Adjust the z-index as needed */
+}
+
+.rs-picker-toolbar-right button {
+  background-color: #01497c;
+}
+// .rs-picker-menu {
+//   z-index: 99999999999 !important;
+// }
+
+
+.wallet-style {
+  border-width: 2px;
+  display: flex;
+  align-items: center;
+  padding: 14px 10px;
+ border-radius: 6px;
+ margin: 6px 0;
+}
+.just-hover :hover {
+cursor: pointer;
+}
+
+.text_wrap{
+  text-wrap: break-word;
+}
+.fw-bold{
+  font-weight: 550 !important;
+}
+
+.noti-wraper{
+background-color: #01497c;
+height: 40vh;
+}

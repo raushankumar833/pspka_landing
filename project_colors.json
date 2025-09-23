@@ -1,0 +1,20 @@
+{
+  "purple": {
+    "variations": ["#E5CDE2CB", "#BF82B6", "#7F056E", "#58034D", "#32022C", "#ffffff"],
+    "secondary": {
+      "variations": ["#E5CDE2CB", "#BF82B6", "#7F056E", "#58034D", "#32022C", "#ffffff"]
+    },
+    "info": {
+      "variations": ["#E5CDE2CB", "#BF82B6", "#7F056E", "#58034D", "#32022C", "#ffffff"]
+    },
+    "success": {
+      "variations": ["#E5CDE2CB", "#BF82B6", "#7F056E", "#58034D", "#32022C", "#ffffff"]
+    },
+    "warning": {
+      "variations": ["#E5CDE2CB", "#BF82B6", "#7F056E", "#58034D", "#32022C", "#ffffff"]
+    },
+    "error": {
+      "variations": ["#E5CDE2CB", "#BF82B6", "#7F056E", "#58034D", "#32022C", "#ffffff"]
+    }
+  }
+}

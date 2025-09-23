@@ -1,0 +1,21 @@
+
+{
+  "name": "%process.env.REACT_APP_PROJECT_TITLE%",
+  "short_name": "%process.env.REACT_APP_PROJECT_TITLE%",
+  "display": "standalone",
+  "start_url": "/",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "favicon/favicon.ico",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon/favicon.ico",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
